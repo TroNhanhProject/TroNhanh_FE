@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import AdminLayout from "../../components/layout/AdminLayout";
+import AdminLayout from "../../components/Layout/layout";
 import Dashboard from "../../pages/AdminPage/Dashboard/dashboard";
 import Users from "../../pages/AdminPage/User/Users";
 import Posts from "../../pages/AdminPage/Post/Posts";
@@ -8,7 +8,7 @@ import Transactions from "../../pages/AdminPage/Transaction/Transaction";
 import Communication from "../../pages/AdminPage/Communication/Communication";
 
 
-function RouterAd() {
+function App() {
   return (
     <Router>
       <Routes>
@@ -25,4 +25,4 @@ function RouterAd() {
   );
 }
 
-export default RouterAd;
+export default App;
