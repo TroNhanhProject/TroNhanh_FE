@@ -1,0 +1,17 @@
+.admin-layout {
+  min-height: 100vh;
+}
+
+.dashboard-content-wrapper {
+  background-color: #f5f5f5;
+  padding: 12px;
+}
+
+.dashboard-content {
+  width: 100%;
+  padding: 12px 6px;
+}
+
+.mt-3 {
+  margin-top: 12px;
+}

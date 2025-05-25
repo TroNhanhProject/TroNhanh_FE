@@ -1,0 +1,97 @@
+/* Base font size settings - adjust this single value to scale everything */
+:root {
+  --base-size: 16px;
+  --header-height: 4rem;
+}
+
+/* Header styles */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: var(--header-height);
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border: 1px solid rgb(197, 196, 196);
+  border-radius: 0.3125rem;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header-logo {
+  height: calc(var(--header-height) * 0.6);
+}
+
+.nav-menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  border-bottom: none;
+  background: transparent;
+  line-height: var(--header-height);
+}
+
+.nav-menu .ant-menu-item {
+  padding: 0 1.25rem;
+  margin: 0 0.3125rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.user-avatar {
+  background-color: #1890ff;
+  cursor: pointer;
+  font-size: 1rem;
+  /* Ant Design avatars will scale with font-size */
+}
+
+/* Scale based on viewport width for very large or very small screens */
+@media (min-width: 1600px) {
+  :root {
+    --base-size: 18px;
+    --header-height: 4.5rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --base-size: 14px;
+    --header-height: 3.5rem;
+  }
+  
+  .nav-menu .ant-menu-item {
+    padding: 0 1rem;
+    margin: 0 0.25rem;
+  }
+}
+
+/* Additional responsive adjustments for mobile */
+@media (max-width: 768px) {
+  :root {
+    --base-size: 14px;
+    --header-height: 3.25rem;
+  }
+  
+  .app-header {
+    padding: 0 0.75rem;
+  }
+  
+  .nav-menu .ant-menu-item {
+    padding: 0 0.75rem;
+    margin: 0 0.125rem;
+  }
+}
