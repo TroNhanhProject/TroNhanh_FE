@@ -10,7 +10,6 @@ import Communication from "../../pages/AdminPage/Communication/Communication";
 
 function App() {
   return (
-    <Router>
       <Routes>
         <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />
         <Route element={<AdminLayout />}>
@@ -21,7 +20,6 @@ function App() {
           <Route path="/admin/communication" element={<Communication />} />
         </Route>
       </Routes>
-    </Router>
   );
 }
 

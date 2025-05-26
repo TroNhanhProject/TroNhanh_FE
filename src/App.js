@@ -1,10 +1,18 @@
-import logo from './logo.svg';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import './App.css';
-import RouterAd from './routes/AdminRoutes/RouterAd';
-
+import RouterAd from "./routes/AdminRoutes/RoutesAd";
+import HeaderComponent from './components/header/header';
+import FooterComponent from "./components/footer/footer";
 function App() {
   return (
-    <RouterAd />
+    <BrowserRouter>
+      <HeaderComponent />
+      <div style={{ marginTop: "80px" }}>
+        <RouterAd />
+      </div>
+      <FooterComponent />
+    </BrowserRouter>
   );
 }
 

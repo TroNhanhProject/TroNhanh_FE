@@ -1,6 +1,92 @@
-import React from "react";
-import { Layout, Menu } from "antd";
-import { useNavigate, useLocation } from "react-router-dom";
+// import React from "react";
+// import { Layout, Menu } from "antd";
+// import { useNavigate, useLocation } from "react-router-dom";
+// import {
+//   DashboardOutlined,
+//   UserOutlined,
+//   FileTextOutlined,
+//   ShoppingOutlined,
+//   TeamOutlined,
+//   LogoutOutlined,
+// } from "@ant-design/icons";
+
+// import "./sidebar.css";
+
+// const { Sider } = Layout;
+
+// const Sidebar = ({ collapsed, setCollapsed }) => {
+//   const navigate = useNavigate();
+//   const location = useLocation();
+
+//   const menuItems = [
+//     {
+//       key: "dashboard",
+//       icon: <DashboardOutlined />,
+//       label: "Dashboard",
+//       onClick: () => navigate("/admin/dashboard")
+//     },
+//     {
+//       key: "users",
+//       icon: <UserOutlined />,
+//       label: "Users",
+//       onClick: () => navigate("/admin/users")
+//     },
+//     {
+//       key: "posts",
+//       icon: <FileTextOutlined />,
+//       label: "Posts",
+//       onClick: () => navigate("/admin/posts")
+//     },
+//     {
+//       key: "transactions",
+//       icon: <ShoppingOutlined />,
+//       label: "Transactions",
+//       onClick: () => navigate("/admin/transactions")
+//     },
+//     {
+//       key: "communication",
+//       icon: <TeamOutlined />,
+//       label: "Communication",
+//       onClick: () => navigate("/admin/communication")
+//     },
+//     {
+//       key: "logout",
+//       icon: <LogoutOutlined />,
+//       label: "Logout",
+//       className: "logout-item",
+//       onClick: () => console.log("Logout clicked")
+//     },
+//   ];
+
+//   // Extract the current path to set the active menu item
+//   const currentPath = location.pathname.split("/")[1] || "dashboard";
+
+//   return (
+//     <Sider
+//       collapsible
+//       collapsed={collapsed}
+//       onCollapse={(value) => setCollapsed(value)}
+//       className="admin-sider"
+//       theme="light"
+//       width={220}
+//     >
+//       <div className="logo-container">
+//         {!collapsed && <h1 className="logo">Admin Panel</h1>}
+//       </div>
+//       <Menu
+//         defaultSelectedKeys={[currentPath]}
+//         mode="inline"
+//         items={menuItems}
+//         className="admin-menu"
+//       />
+//     </Sider>
+//   );
+// };
+
+// export default Sidebar;
+
+
+import { Menu } from "antd"
 import {
   DashboardOutlined,
   UserOutlined,
@@ -8,79 +94,39 @@ import {
   ShoppingOutlined,
   TeamOutlined,
   LogoutOutlined,
-} from "@ant-design/icons";
+} from "@ant-design/icons"
+import { useNavigate, useLocation } from "react-router-dom"
 
-import "./sidebar.css";
+import "./sidebar.css"
 
-const { Sider } = Layout;
+const AdminSidebar = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
 
-const Sidebar = ({ collapsed, setCollapsed }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const items = [
+    { label: "System Overview", key: "/admin/dashboard", icon: <DashboardOutlined /> },
+    { label: "Users", key: "/admin/users", icon: <UserOutlined /> },
+    { label: "Posts", key: "/admin/posts", icon: <FileTextOutlined /> },
+    { label: "Comunication", key: "/admin/communication", icon: <TeamOutlined /> },
+    { label: "Transactions", key: "/admin/transactions", icon: <ShoppingOutlined /> },
+    { label: "Logout", key: "/admin/logout", icon: <LogoutOutlined />,},
+  ]
 
-  const menuItems = [
-    {
-      key: "dashboard",
-      icon: <DashboardOutlined />,
-      label: "Dashboard",
-      onClick: () => navigate("/admin/dashboard")
-    },
-    {
-      key: "users",
-      icon: <UserOutlined />,
-      label: "Users",
-      onClick: () => navigate("/admin/users")
-    },
-    {
-      key: "posts",
-      icon: <FileTextOutlined />,
-      label: "Posts",
-      onClick: () => navigate("/admin/posts")
-    },
-    {
-      key: "transactions",
-      icon: <ShoppingOutlined />,
-      label: "Transactions",
-      onClick: () => navigate("/admin/transactions")
-    },
-    {
-      key: "communication",
-      icon: <TeamOutlined />,
-      label: "Communication",
-      onClick: () => navigate("/admin/communication")
-    },
-    {
-      key: "logout",
-      icon: <LogoutOutlined />,
-      label: "Logout",
-      className: "logout-item",
-      onClick: () => console.log("Logout clicked")
-    },
-  ];
-
-  // Extract the current path to set the active menu item
-  const currentPath = location.pathname.split("/")[1] || "dashboard";
+  const handleMenuClick = (e) => {
+    navigate(e.key)
+  }
 
   return (
-    <Sider
-      collapsible
-      collapsed={collapsed}
-      onCollapse={(value) => setCollapsed(value)}
-      className="admin-sider"
-      theme="light"
-      width={220}
-    >
-      <div className="logo-container">
-        {!collapsed && <h1 className="logo">Admin Panel</h1>}
-      </div>
+    <div className="admin-sidebar-container">
       <Menu
-        defaultSelectedKeys={[currentPath]}
         mode="inline"
-        items={menuItems}
-        className="admin-menu"
+        selectedKeys={[location.pathname]}
+        items={items}
+        className="admin-sidebar-menu"
+        onClick={handleMenuClick}
       />
-    </Sider>
-  );
-};
+    </div>
+  )
+}
 
-export default Sidebar;
+export default AdminSidebar;

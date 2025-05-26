@@ -1,97 +1,179 @@
-/* Base font size settings - adjust this single value to scale everything */
 :root {
-  --base-size: 16px;
-  --header-height: 4rem;
+  --primary-gradient: linear-gradient(to right, #9dddf1, #edb3d0);
+  --primary-blue: #9dddf1;
+  --primary-pink: #edb3d0;
+  --transition: all 0.3s ease;
+  --radius: 20px;
 }
 
-/* Header styles */
-.app-header {
+/* Core Layout */
+.header {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  padding: 0 24px !important;
+  height: 64px !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5rem;
-  height: var(--header-height);
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  border: 1px solid rgb(197, 196, 196);
-  border-radius: 0.3125rem;
 }
 
-.logo-section {
+/* Logo */
+.logo a {
   display: flex;
   align-items: center;
-  height: 100%;
+  gap: 8px;
 }
 
-.header-logo {
-  height: calc(var(--header-height) * 0.6);
+.logo-image {
+  height: 32px;
+  width: auto;
 }
 
+.logo-text {
+  font-size: 18px;
+  font-weight: bold;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Navigation */
 .nav-menu {
   flex: 1;
-  display: flex;
   justify-content: center;
-  border-bottom: none;
-  background: transparent;
-  line-height: var(--header-height);
+  border-bottom: none !important;
+  background: transparent !important;
 }
 
 .nav-menu .ant-menu-item {
-  padding: 0 1.25rem;
-  margin: 0 0.3125rem;
-  font-weight: 500;
-  font-size: 1rem;
+  padding: 0 12px !important;
+  margin: 0 2px !important;
+  height: 64px !important;
+  line-height: 64px !important;
+  font-size: 15px;
 }
 
-.user-profile {
+.nav-menu .ant-menu-item:hover {
+  color: var(--primary-blue) !important;
+}
+.nav-menu .ant-menu-item-selected {
+  color: var(--primary-pink) !important;
+}
+.nav-menu .ant-menu-item::after {
+  background: var(--primary-gradient) !important;
+}
+
+/* User Menu */
+.user-menu {
   display: flex;
   align-items: center;
-  height: 100%;
+  gap: 12px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 3px 10px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.user-info:hover {
+  background: rgba(157, 221, 241, 0.1);
 }
 
 .user-avatar {
-  background-color: #1890ff;
-  cursor: pointer;
-  font-size: 1rem;
-  /* Ant Design avatars will scale with font-size */
+  background: var(--primary-gradient);
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 32px !important;
+  height: 32px !important;
+  font-size: 14px !important;
+  line-height: 32px !important;
 }
 
-/* Scale based on viewport width for very large or very small screens */
-@media (min-width: 1600px) {
-  :root {
-    --base-size: 18px;
-    --header-height: 4.5rem;
-  }
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-@media (max-width: 1280px) {
-  :root {
-    --base-size: 14px;
-    --header-height: 3.5rem;
+.dropdown-icon {
+  font-size: 10px;
+  color: #666;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Dropdown Menu */
+.user-dropdown .ant-dropdown-menu {
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.user-dropdown .ant-dropdown-menu-item {
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.user-dropdown .ant-dropdown-menu-item:hover {
+  background: rgba(157, 221, 241, 0.1);
+}
+
+.user-dropdown .anticon {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .header {
+    padding: 0 16px !important;
   }
-  
+  .user-name {
+    display: none;
+  }
   .nav-menu .ant-menu-item {
-    padding: 0 1rem;
-    margin: 0 0.25rem;
+    padding: 0 8px !important;
   }
 }
 
-/* Additional responsive adjustments for mobile */
 @media (max-width: 768px) {
-  :root {
-    --base-size: 14px;
-    --header-height: 3.25rem;
+  .header {
+    height: 56px !important;
   }
-  
-  .app-header {
-    padding: 0 0.75rem;
+  /* .nav-menu { display: none; } Who did this ???? */
+  .auth-buttons {
+    gap: 8px;
   }
-  
-  .nav-menu .ant-menu-item {
-    padding: 0 0.75rem;
-    margin: 0 0.125rem;
+  .login-button {
+    padding: 5px 10px;
+  }
+  .signup-button {
+    padding: 5px 12px !important;
+  }
+  .logo-image {
+    height: 28px;
+  }
+  .logo-text {
+    font-size: 16px;
   }
 }
