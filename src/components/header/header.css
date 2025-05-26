@@ -1,7 +1,7 @@
 :root {
-  --primary-gradient: linear-gradient(to right, #9dddf1, #edb3d0);
-  --primary-blue: #9dddf1;
-  --primary-pink: #edb3d0;
+  --primary-gradient: linear-gradient(to right, #064749, #c4f7d8);
+  --primary-lightgreen: #c4f7d8;
+  --primary-green: #064749;
   --transition: all 0.3s ease;
   --radius: 20px;
 }
@@ -60,10 +60,10 @@
 }
 
 .nav-menu .ant-menu-item:hover {
-  color: var(--primary-blue) !important;
+  color: var(--primary-green) !important;
 }
 .nav-menu .ant-menu-item-selected {
-  color: var(--primary-pink) !important;
+  color: var(--primary-lightgreen) !important;
 }
 .nav-menu .ant-menu-item::after {
   background: var(--primary-gradient) !important;

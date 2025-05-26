@@ -17,7 +17,7 @@ const FooterComponent = () => {
           {/* Brand Section */}
           <div className="footer-brand">
             <div className="brand-info">
-              <img src="/Images/MainImage/LogoJP.png" alt="Logo" className="footer-logo" />
+              <img src="/logo" alt="Logo" className="footer-logo" />
               <span className="brand-name">Tro Nhanh</span>
             </div>
             <div className="social-links">

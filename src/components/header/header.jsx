@@ -132,7 +132,7 @@ const HeaderComponent = () => {
       <Header className="header">
         <div className="logo">
           <Link to={"/"}>
-            <img src="/Images/MainImage/LogoJP.png" alt="Logo" className="logo-image" />
+            <img src="/" alt="Logo" className="logo-image" />
             <span className="logo-text">Tro Nhanh</span>
           </Link>
         </div>
