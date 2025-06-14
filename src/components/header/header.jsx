@@ -31,9 +31,9 @@ const HeaderComponent = () => {
       balance: 500000
     },
     roles: [
-      // { name: "CUSTOMER" },
+      { name: "CUSTOMER" },
       // { name: "OWNER" },
-      { name: "ADMIN" } 
+      // { name: "ADMIN" } 
     ]
   };
 
@@ -132,7 +132,7 @@ const HeaderComponent = () => {
       <Header className="header">
         <div className="logo">
           <Link to={"/"}>
-            <img src="/" alt="Logo" className="logo-image" />
+            <img src="Logo_TrọNhanh.png" alt="Logo" className="logo-image" />
             <span className="logo-text">Tro Nhanh</span>
           </Link>
         </div>

@@ -4,12 +4,13 @@ import './App.css';
 import RouterAd from "./routes/AdminRoutes/RoutesAd";
 import HeaderComponent from './components/header/header';
 import FooterComponent from "./components/footer/footer";
+import HomePage from "./pages/HomePage/HomePage";
 function App() {
   return (
     <BrowserRouter>
       <HeaderComponent />
-      <div style={{ marginTop: "80px" }}>
-        <RouterAd />
+      <div>
+        <HomePage />
       </div>
       <FooterComponent />
     </BrowserRouter>
