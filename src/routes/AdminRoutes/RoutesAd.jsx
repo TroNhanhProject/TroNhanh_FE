@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import AdminLayout from "../../components/Layout/layout";
+import AdminLayout from "../../components/layout/layout";
 import Dashboard from "../../pages/AdminPage/Dashboard/dashboard";
 import Users from "../../pages/AdminPage/User/Users";
 import Posts from "../../pages/AdminPage/Post/Posts";

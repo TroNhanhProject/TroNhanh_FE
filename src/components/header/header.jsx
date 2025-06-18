@@ -31,9 +31,9 @@ const HeaderComponent = () => {
       balance: 500000
     },
     roles: [
-      // { name: "CUSTOMER" },
+      { name: "CUSTOMER" },
       // { name: "OWNER" },
-      { name: "ADMIN" } 
+      // { name: "ADMIN" } 
     ]
   };
 
