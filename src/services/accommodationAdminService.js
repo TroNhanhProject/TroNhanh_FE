@@ -29,6 +29,40 @@ export const getBoardingHouseDetailAdmin = async (id) => {
 };
 
 /**
+ * AI: Analyze a boarding house post using backend AI admin assistant
+ */
+export const analyzeBoardingHouseAI = async (id) => {
+  const token = localStorage.getItem("token");
+  const response = await axios.get(`${API_BASE_URL}/admin/boarding-houses/${id}/moderate`, {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  return response.data;
+};
+
+/**
+ * AI: Find duplicate images summary
+ */
+export const getImageDuplicates = async (minSimilarity = 0.85) => {
+  const token = localStorage.getItem("token");
+  const response = await axios.get(`${API_BASE_URL}/admin/ai/image-duplicates`, {
+    params: { minSimilarity },
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  return response.data;
+};
+
+/**
+ * AI: Generate suggestion via LLM
+ */
+export const generateAISuggestion = async (prompt) => {
+  const token = localStorage.getItem("token");
+  const response = await axios.post(`${API_BASE_URL}/admin/ai/generate-suggestion`, { prompt }, {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+  return response.data;
+};
+
+/**
  * Duyệt (chấp thuận/từ chối) một bài đăng nhà trọ.
  * @param {string} id - ID của nhà trọ.
  * @param {string} approvedStatus - Trạng thái mới ('approved' hoặc 'rejected').
